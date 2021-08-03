@@ -4,8 +4,8 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-tensorflow = "==1.4"
-keras = "==2.1.2"
+tensorflow = "~=2.4.1"
+keras = "*"
 numpy = "*"
 path = "*"
 h5py = "*"
@@ -14,4 +14,4 @@ pillow = "*"
 [dev-packages]
 
 [requires]
-python_version = "3.5"
+python_version = "3.8"
