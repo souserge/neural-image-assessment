@@ -56,5 +56,4 @@ def main(imgpaths, resize_images=False, rank_images=False):
 
 if __name__ == "__main__":
     (imgs, resize_images, rank_images) = utils.cli.parse_args()
-
     main(imgs, resize_images, rank_images)

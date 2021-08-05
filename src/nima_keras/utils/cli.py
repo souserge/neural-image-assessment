@@ -1,5 +1,5 @@
 import argparse
-improt Path
+from path import Path
 
 
 def parse_args():
