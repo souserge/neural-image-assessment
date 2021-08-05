@@ -10,6 +10,7 @@ numpy = "*"
 path = "*"
 h5py = "*"
 pillow = "*"
+nima-keras = {editable = true, path = "."}
 
 [dev-packages]
 black = "*"

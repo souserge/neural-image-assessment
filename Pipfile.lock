@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "40d844650d5eb06522afb56faba2d92c6310f53fb4705eb19bf5b32f0d9eadab"
+            "sha256": "262755757fe03143b471569612c4990b3232e2c8a91964420e4c8e383549964b"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -200,6 +200,10 @@
             ],
             "markers": "python_version >= '3.6'",
             "version": "==3.3.4"
+        },
+        "nima-keras": {
+            "editable": true,
+            "path": "."
         },
         "numpy": {
             "hashes": [

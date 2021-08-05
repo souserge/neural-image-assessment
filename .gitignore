@@ -1,6 +1,7 @@
 logs/
 .idea/
 
+*.egg-info/
 /.vscode
 /images
 /weights
