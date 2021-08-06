@@ -7,8 +7,6 @@ from keras.applications.mobilenet import MobileNet
 from keras.applications.mobilenet import preprocess_input
 from keras.preprocessing.image import load_img, img_to_array
 import tensorflow as tf
-
-from utils.score_utils import mean_score, std_score
 import utils
 
 
@@ -36,8 +34,8 @@ def main(imgpaths, resize_images=False, rank_images=False):
 
             scores = model.predict(x, batch_size=1, verbose=0)[0]
 
-            mean = mean_score(scores)
-            std = std_score(scores)
+            mean = utils.score_utils.mean_score(scores)
+            std = utils.score_utils.std_score(scores)
 
             file_name = Path(img_path).name.lower()
             score_list.append((file_name, mean))
