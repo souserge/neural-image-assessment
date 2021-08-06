@@ -1,6 +1,6 @@
 import numpy as np
 from path import Path
-
+import os
 from keras.models import Model
 from keras.layers import Dense, Dropout
 from keras.applications.inception_resnet_v2 import InceptionResNetV2
@@ -8,7 +8,7 @@ from keras.applications.inception_resnet_v2 import preprocess_input
 from keras.preprocessing.image import load_img, img_to_array
 import tensorflow as tf
 
-import utils
+from .utils import score_utils
 
 
 def main(imgpaths, resize_images=False, rank_images=False):
@@ -21,7 +21,11 @@ def main(imgpaths, resize_images=False, rank_images=False):
         x = Dense(10, activation="softmax")(x)
 
         model = Model(base_model.input, x)
-        model.load_weights("weights/inception_resnet_weights.h5")
+        filepath = os.path.realpath(__file__)
+        file_dirpath = os.path.dirname(filepath)
+        model.load_weights(
+            os.path.join(file_dirpath, "../../weights/inception_resnet_weights.h5")
+        )
 
         score_list = []
 
@@ -34,8 +38,8 @@ def main(imgpaths, resize_images=False, rank_images=False):
 
             scores = model.predict(x, batch_size=1, verbose=0)[0]
 
-            mean = utils.score_utils.mean_score(scores)
-            std = utils.score_utils.std_score(scores)
+            mean = score_utils.mean_score(scores)
+            std = score_utils.std_score(scores)
 
             file_name = Path(img_path).name.lower()
             score_list.append((file_name, mean))
